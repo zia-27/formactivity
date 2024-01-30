@@ -1,0 +1,90 @@
+body {
+  background-color: #dbe1ff;
+  font-family: "Poppins", sans-serif;
+}
+
+h2 {
+  font-size: large;
+  font-style: italic;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: medium;
+  font-weight: 400;
+}
+
+#top-part {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 21px rgba(20, 34, 71, 0.171);
+  max-width: 600px;
+  margin: 60px 337px 30px 337px;
+  padding: 15px 30px 15px 30px;
+  text-align: center;
+}
+
+.unique-color {
+  color: #5713a5;
+}
+
+#daForm {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 21px rgba(20, 34, 71, 0.171);
+  max-width: 272px;
+  margin: 20px auto;
+  padding: 15px 30px 15px 30px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.form-items {
+  padding: 10px 0 25px 0;
+}
+
+.form-header {
+  color: #5713a5;
+  font-weight: bold;
+}
+
+.form-header2 {
+  font-size: 13px;
+  font-style: italic;
+}
+
+#submit-button {
+  background-color: #1a296b;
+  border: #1a296b 1px solid;
+  border-radius: 11px;
+  color: #fff;
+  font-family: "Play", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  display: block;
+  margin: 0 87px 25px 87px;
+  padding: 17px 20px 17px 20px;
+  transition: 200ms ease-in-out;
+}
+
+#submit-button:hover {
+  background-color: #fff;
+  border: #1a296b 1px solid;
+  color: #1a296b;
+}
+
+footer {
+  border-top: 2px solid #dbe1ffad;
+  color: #27214281;
+  font-size: 15px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.footer-fonts {
+  color: #401a6ba2;
+  font-weight: bold;
+  text-decoration: underline;
+}

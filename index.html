@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="C:\Users\ACER\Desktop\pup\Web Development\WebDevCodes\FormActivity\style.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <title>WebDev - Form Activity</title>
+  </head>
+  <body>
+    <div id="top-part">
+      <h1 id="heading1">
+        You're ✨<span class="unique-color">NEW</span>✨ to the club?
+      </h1>
+      <h2 id="heading2">Fill out the form below to officially join us!</h2>
+      <h3>☆*:.｡.o(≧▽≦)o.｡.:*☆</h3>
+    </div>
+
+    <div id="daForm">
+      <form
+        method="post"
+        action="https://script.google.com/macros/s/AKfycbwoHJYuRw_OBGyHVYKT-oHhObTncwcGZ_IkMhLmEOEEveTinV8Jiac8oH6Rz3u_QBvDHQ/exec"
+        onsubmit="submitForm(event)"
+      >
+        <ul>
+          <li class="form-items">
+            <label for="first-name" class="form-header">FIRST NAME:</label>
+            <br />
+            <input
+              type="text"
+              name="First Name"
+              placeholder="Enter your first name here"
+              id="first-name"
+              required
+            />
+          </li>
+
+          <li class="form-items">
+            <label for="last-name" class="form-header">LAST NAME:</label>
+            <br />
+            <input
+              type="text"
+              name="Last Name"
+              placeholder="Enter your last name here"
+              id="last-name"
+              required
+            />
+          </li>
+
+          <li class="form-items">
+            <label for="birthdate" class="form-header">DATE OF BIRTH:</label>
+            <br />
+            <input
+              type="date"
+              name="Birthdate"
+              min="1990-01-01"
+              id="birthdate"
+            />
+          </li>
+
+          <li class="form-items">
+            <span class="form-header">GENDER:</span>
+            <br />
+
+            <input type="radio" name="gender" id="gender" />
+            <label for="gender-male">Male</label>
+            <br />
+
+            <input type="radio" name="gender" id="gender" />
+            <label for="gender-female">Female</label>
+            <br />
+
+            <input type="radio" name="gender" id="gender" />
+            <label for="gender-na">Prefer not to say</label>
+            <br />
+          </li>
+
+          <li class="form-items">
+            <label for="email" class="form-header">EMAIL:</label>
+            <br />
+            <input
+              type="email"
+              name="Email"
+              placeholder="Enter your email here"
+              id="email"
+              required
+            />
+          </li>
+
+          <li class="form-items">
+            <label for="contact-num" class="form-header">CONTACT NUMBER:</label>
+            <br />
+            <input
+              type="number"
+              name="Contact Number"
+              maxlength="11"
+              placeholder="Enter your contact number here"
+              id="contact-num"
+              required
+            />
+          </li>
+
+          <li class="form-items">
+            <span class="form-header">APPLYING FOR</span>
+            <br />
+            <span class="form-header2">(Check at least one):</span>
+            <br />
+
+            <input type="checkbox" name="CityGals Department" id="city-gals" />
+            <label for="city-gals">CityGals Department</label>
+            <br />
+
+            <input type="checkbox" name="Bar Hopperz Group" id="bar-hopperz" />
+            <label for="bar-hopperz">Bar Hopperz Group</label>
+            <br />
+
+            <input type="checkbox" name="Team DayDreamerX" id="day-dreamerx" />
+            <label for="day-dreamerx">Team DayDreamerX</label>
+            <br />
+          </li>
+        </ul>
+
+        <button type="submit" id="submit-button">SUBMIT</button>
+      </form>
+    </div>
+
+    <footer>
+      <p>
+        This project is coded by
+        <span class="footer-fonts">Trizia C.</span>, from
+        <span class="footer-fonts">BSIT 3-5</span>, as an activity for her class
+        in <span class="footer-fonts">Web Development</span>.
+      </p>
+    </footer>
+
+    <script>
+      function submitForm(event) {
+        event.preventDefault();
+
+        var contactNumInput = document.getElementById("contact-num");
+        var contactNum = contactNumInput.value;
+
+        if (contactNum.length < 10 || contactNum.length > 11) {
+          alert("Error alert! Your contact number must have 11 digits only.");
+          return;
+        }
+
+        var form = event.target;
+        var formData = new FormData(form);
+
+        fetch(form.action, {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.text())
+          .then((result) => {
+            if (result === "error") {
+              alert("Error submitting the form.");
+            } else {
+              document.querySelector("#heading1").innerText =
+                "✨ THANK YOU for applying! ✨";
+              document.querySelector("#heading2").innerText =
+                "Kindly wait for us to reach out to you for more details. See you soonest!";
+
+              document.querySelector("#daForm").style.display = "none";
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert(
+              "An unexpected error occurred. Check the console for details."
+            );
+          });
+      }
+    </script>
+  </body>
+</html>
